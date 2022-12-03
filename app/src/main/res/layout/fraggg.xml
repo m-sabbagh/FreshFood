@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RadioGroup
+        android:id="@+id/RatingRadioGroup"
+        android:layout_width="397dp"
+        android:layout_height="wrap_content"
+        android:padding="25dp"
+
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="84dp">
+
+        <RadioButton
+            android:id="@+id/excellentRB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Excellent" />
+
+        <RadioButton
+            android:id="@+id/vgoodRB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Very Good" />
+
+        <RadioButton
+            android:id="@+id/goodRB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good" />
+
+        <RadioButton
+            android:id="@+id/satisfactoryRB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Satisfactory" />
+
+        <RadioButton
+            android:id="@+id/poorRB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poor" />
+
+        <Button
+            android:id="@+id/cancelBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/submitBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Submit"
+            tools:ignore="MissingConstraints" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
