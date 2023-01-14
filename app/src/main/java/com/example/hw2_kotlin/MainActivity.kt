@@ -1,5 +1,6 @@
 package com.example.hw2_kotlin
 
+import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -7,7 +8,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.DialogFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,9 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val orderbt = findViewById<Button>(R.id.button)
         val radioGroup = findViewById<RadioGroup>(R.id.RatingRadioGroup)
-
         val radioGroup2 =findViewById<RadioGroup>(R.id.Radiogroup2)
-
         orderbt.setOnClickListener {
             val selectedOption: Int = radioGroup.checkedRadioButtonId
             val selectedOption2: Int = radioGroup2.checkedRadioButtonId
@@ -26,7 +24,21 @@ class MainActivity : AppCompatActivity() {
             val radioButton2 = findViewById<RadioButton>(selectedOption2)
 
            receiveOrder(radioButton.text.toString() , radioButton2.text.toString())
-//        }
+
+            val values = ContentValues()
+            values.put(
+                MarketProvider.BURGERS,
+                radioButton.text.toString()
+            )
+            values.put(
+                MarketProvider.BEVENAGERS,
+                radioButton2.text.toString()
+
+            )
+            val uri = contentResolver.insert(
+                MarketProvider.CONTENT_URI, values
+            )
+            Toast.makeText(baseContext, uri.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -59,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         var dialog_var= CustomDialogFragment()
         when(item.itemId){
 
-            R.id.item1 ->                    dialog_var.show(supportFragmentManager,"Custom Dialog")
+            R.id.item1 ->dialog_var.show(supportFragmentManager,"Custom Dialog")
 
 
             R.id.item2 -> AlertDialog.Builder(this)
